@@ -1,0 +1,13 @@
+# No implicit profile: developers opt in to local connection defaults.
+# Password intentionally has no committed default.
+spring:
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/atlas}
+    username: ${SPRING_DATASOURCE_USERNAME:atlas}
+    password: ${SPRING_DATASOURCE_PASSWORD}
+
+atlas:
+  local:
+    alice-password: ${ATLAS_LOCAL_ALICE_PASSWORD:}
+    bob-password: ${ATLAS_LOCAL_BOB_PASSWORD:}
+    admin-password: ${ATLAS_LOCAL_ADMIN_PASSWORD:}

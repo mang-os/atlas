@@ -1,0 +1,47 @@
+name: atlas-flight-demo
+services:
+  postgres:
+    image: postgres:17.11-bookworm@sha256:639ab7ceb90e13123085b741fb31ef493fba25463002f6da665352e7b534b652
+    environment:
+      POSTGRES_DB: atlas
+      POSTGRES_USER: atlas
+      POSTGRES_PASSWORD: ${DEMO_DB_PASSWORD:?Run start.ps1}
+    volumes: [flight-db:/var/lib/postgresql/data]
+    healthcheck:
+      test: [CMD-SHELL, 'pg_isready -U atlas -d atlas']
+      interval: 2s
+      timeout: 3s
+      retries: 30
+  app:
+    image: atlas-flight-local:0.1.0
+    build:
+      context: ..
+    environment:
+      SPRING_PROFILES_ACTIVE: local
+      SERVER_ADDRESS: 0.0.0.0
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/atlas
+      SPRING_DATASOURCE_USERNAME: atlas
+      SPRING_DATASOURCE_PASSWORD: ${DEMO_DB_PASSWORD}
+      ATLAS_LOCAL_ALICE_PASSWORD: ${DEMO_ALICE_PASSWORD}
+      ATLAS_LOCAL_BOB_PASSWORD: ${DEMO_BOB_PASSWORD}
+      ATLAS_LOCAL_ADMIN_PASSWORD: ${DEMO_ADMIN_PASSWORD}
+      ATLAS_HOLD_TTL_SECONDS: 30
+      ATLAS_EXPIRATION_ENABLED: 'true'
+      ATLAS_EXPIRATION_POLL_MS: 500
+      ATLAS_KAFKA_ENABLED: 'false'
+      ATLAS_REDIS_ENABLED: 'false'
+    depends_on:
+      postgres: {condition: service_healthy}
+  ui:
+    image: node@sha256:43ac6c60b8f89723f746e8a92ce91abd5017e627ce1ddfe4238355d3a30b772c
+    entrypoint: [node, /demo/server.mjs]
+    environment:
+      ATLAS_API_URL: http://app:8080
+      DEMO_ALICE_PASSWORD: ${DEMO_ALICE_PASSWORD}
+      DEMO_BOB_PASSWORD: ${DEMO_BOB_PASSWORD}
+      DEMO_ADMIN_PASSWORD: ${DEMO_ADMIN_PASSWORD}
+    volumes: [".:/demo:ro"]
+    ports: ["127.0.0.1:4173:4173"]
+    depends_on: [app]
+volumes:
+  flight-db:

@@ -1,0 +1,19 @@
+# Credentials and dynamic URL are supplied exclusively by Testcontainers.
+spring:
+  datasource:
+    hikari:
+      maximum-pool-size: 3
+  flyway:
+    locations: classpath:db/migration,classpath:db/test-migration
+server:
+  address: 127.0.0.1
+# Earlier suites explicitly test persisted overdue fixtures; automatic scheduling is exercised by ExpirationIT.
+atlas:
+  recovery:
+    enabled: false
+  redis:
+    enabled: false
+  expiration:
+    enabled: false
+  kafka:
+    enabled: false

@@ -1,0 +1,6 @@
+{
+  "k6Version": "2.3.0",
+  "k6Image": "grafana/k6@sha256:9c2dee7f8ed74d317e4027c06a10f169b625638189de8d4555d0b3486a5aeb34",
+  "verifiedBinary": "k6 v2.3.0 (commit/e088784614, go1.27.1, linux/amd64)",
+  "releaseSource": "https://github.com/grafana/k6/releases/tag/v2.3.0"
+}

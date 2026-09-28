@@ -1,0 +1,47 @@
+{
+  "status": "PASS",
+  "cases": [
+    {
+      "name": "actualKafkaOutageAllowsReservationsAndBacklogRecoversAfterBrokerResume",
+      "status": "PASS",
+      "elapsedSeconds": 17.892
+    },
+    {
+      "name": "applicationRestartDrainsPendingExpirationAndPublicationThenSecondRestartIsIdempotent",
+      "status": "PASS",
+      "elapsedSeconds": 9.67
+    },
+    {
+      "name": "consumerApplicationRestartAfterEffectCommitBeforeAckRedeliversWithOneEffect",
+      "status": "PASS",
+      "elapsedSeconds": 6.259
+    },
+    {
+      "name": "stoppedRedisDoesNotFailCommittedHttpMutationsAndSameContainerRestartRefillsCache",
+      "status": "PASS",
+      "elapsedSeconds": 7.904
+    },
+    {
+      "name": "lostHttpResponseAfterObservedCommitReplaysAcrossApplicationRestart",
+      "status": "PASS",
+      "elapsedSeconds": 5.673
+    },
+    {
+      "name": "competingWorkersFromIndependentApplicationsReleaseOneHoldExactlyOnce",
+      "status": "PASS",
+      "elapsedSeconds": 5.559
+    },
+    {
+      "name": "terminatedPostgresBackendBeforeCommitRollsBackEveryWriteAndSameKeyRecovers",
+      "status": "PASS",
+      "elapsedSeconds": 4.109
+    },
+    {
+      "name": "publisherConnectionLossAfterAcknowledgedSendRecoversInFreshApplicationWithoutDuplicateEffect",
+      "status": "PASS",
+      "elapsedSeconds": 7.704
+    }
+  ],
+  "totalElapsedSeconds": 76.675,
+  "outerTimeoutSeconds": 120
+}

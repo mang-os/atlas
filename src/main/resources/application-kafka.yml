@@ -1,0 +1,4 @@
+# Opt-in host profile: use alongside local. Credentials still come from local environment.
+atlas:
+  kafka:
+    enabled: true

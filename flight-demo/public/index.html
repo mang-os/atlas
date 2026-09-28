@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Atlas Air · flight reservations</title><link rel="stylesheet" href="/style.css"></head>
+<body>
+<div class="masthead"><a class="brand" href="/" aria-label="Atlas Air home"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M3 31 20 5l17 26H25l-5-9-5 9z" fill="currentColor"/></svg><span>ATLAS AIR</span></a><nav aria-label="Main navigation"><button class="nav active" id="flights-nav">Book a flight</button><button class="nav" id="bookings-nav">My bookings <b id="booking-count">0</b></button></nav><div class="account"><label class="traveller-label">Demo account<select id="traveller" aria-label="Demo traveller"><option value="A">Traveller A</option><option value="B">Traveller B</option></select></label><span class="avatar" aria-hidden="true">A</span></div></div>
+<div class="demo-strip"><div><span>Local booking demo</span><p>Sample flights. Real reservations.</p><span id="connection" class="connection">Connecting…</span></div></div>
+<main>
+<header><div class="breadcrumb">Flights <span>/</span> Select a departure</div><div class="steps"><b>1 &nbsp; Select flight</b><span>2 &nbsp; Confirm reservation</span></div></header>
+<section class="search-panel" aria-label="Flight filters"><label>Departure airport<select id="origin"><option value="ALL">All airports</option><option value="BLR">Bengaluru (BLR)</option><option value="BOM">Mumbai (BOM)</option><option value="HYD">Hyderabad (HYD)</option></select></label><label>Trip type<span>One way</span></label><label>Passengers<select id="quantity"><option value="1">1 adult, Economy</option><option value="2">2 adults, Economy</option><option value="3">3 adults, Economy</option></select></label><button id="search" class="primary">Search flights</button></section>
+<div class="content-heading"><div><h1 id="section-title">Available departures</h1><p id="section-subtitle">Selecting a flight holds capacity for 30 seconds.</p></div><button id="refresh" class="text-button">Refresh availability</button></div>
+<div class="content-grid"><section id="flights" aria-label="Available flights"></section><aside id="checkout" class="checkout" aria-live="polite"></aside></div>
+<footer><span>Atlas Air is a fictional airline. No payment is collected and no ticket is issued.</span><span>Powered by Atlas · 30-second demo holds</span></footer>
+</main><div id="toast" role="status" hidden></div><script type="module" src="/app.js"></script></body></html>

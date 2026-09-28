@@ -1,0 +1,4 @@
+*
+!target/
+target/*
+!target/atlas-0.1.0-SNAPSHOT.jar

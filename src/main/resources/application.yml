@@ -1,0 +1,88 @@
+spring:
+  application:
+    name: atlas
+  datasource:
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 1
+      connection-timeout: 5000
+      validation-timeout: 2000
+      initialization-fail-timeout: 10000
+      connection-init-sql: "SET TIME ZONE 'UTC'"
+      data-source-properties:
+        connectTimeout: 5
+        socketTimeout: 15
+        options: "-c statement_timeout=10000 -c lock_timeout=5000"
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
+  sql:
+    init:
+      mode: never
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    fail-on-missing-locations: true
+    validate-migration-naming: true
+    validate-on-migrate: true
+    clean-disabled: true
+    baseline-on-migrate: false
+    connect-retries: 0
+  lifecycle:
+    timeout-per-shutdown-phase: 20s
+server:
+  address: ${SERVER_ADDRESS:127.0.0.1}
+  port: ${SERVER_PORT:8080}
+  shutdown: graceful
+  error:
+    include-message: never
+    include-stacktrace: never
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      probes:
+        enabled: false
+      show-details: never
+      show-components: never
+
+atlas:
+  recovery:
+    enabled: ${ATLAS_RECOVERY_ENABLED:true}
+    poll-ms: ${ATLAS_RECOVERY_POLL_MS:10000}
+    batch-size: ${ATLAS_RECOVERY_BATCH_SIZE:100}
+    stuck-ms: ${ATLAS_RECOVERY_STUCK_MS:60000}
+    max-attempts: ${ATLAS_RECOVERY_MAX_ATTEMPTS:5}
+    base-delay-ms: ${ATLAS_RECOVERY_BASE_DELAY_MS:1000}
+    max-delay-ms: ${ATLAS_RECOVERY_MAX_DELAY_MS:60000}
+  redis:
+    enabled: ${ATLAS_REDIS_ENABLED:false}
+    host: ${ATLAS_REDIS_HOST:${SPRING_DATA_REDIS_HOST:localhost}}
+    port: ${ATLAS_REDIS_PORT:${SPRING_DATA_REDIS_PORT:6379}}
+    connect-timeout-ms: ${ATLAS_REDIS_CONNECT_TIMEOUT_MS:100}
+    command-timeout-ms: ${ATLAS_REDIS_COMMAND_TIMEOUT_MS:100}
+    fill-budget-ms: ${ATLAS_REDIS_FILL_BUDGET_MS:1000}
+  hold:
+    ttl-seconds: ${ATLAS_HOLD_TTL_SECONDS:300}
+  expiration:
+    enabled: ${ATLAS_EXPIRATION_ENABLED:true}
+    poll-ms: ${ATLAS_EXPIRATION_POLL_MS:1000}
+    batch-size: ${ATLAS_EXPIRATION_BATCH_SIZE:100}
+  kafka:
+    enabled: ${ATLAS_KAFKA_ENABLED:false}
+    bootstrap-servers: ${SPRING_KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+    publisher-enabled: ${ATLAS_KAFKA_PUBLISHER_ENABLED:true}
+    consumer-enabled: ${ATLAS_KAFKA_CONSUMER_ENABLED:true}
+    poll-ms: ${ATLAS_KAFKA_POLL_MS:1000}
+    batch-size: ${ATLAS_KAFKA_BATCH_SIZE:20}

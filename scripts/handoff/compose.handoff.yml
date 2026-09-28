@@ -1,0 +1,18 @@
+# Merge with the normal compose.yml; isolate names, ports, image and owned volume labels.
+services:
+  postgres:
+    labels: {atlas.handoff.session: "${ATLAS_HANDOFF_SESSION:?}"}
+  kafka:
+    labels: {atlas.handoff.session: "${ATLAS_HANDOFF_SESSION:?}"}
+  redis:
+    labels: {atlas.handoff.session: "${ATLAS_HANDOFF_SESSION:?}"}
+  app:
+    image: atlas-handoff:${ATLAS_HANDOFF_SESSION:?}
+    labels: {atlas.handoff.session: "${ATLAS_HANDOFF_SESSION:?}"}
+    environment:
+      JAVA_TOOL_OPTIONS: -XX:ActiveProcessorCount=2
+volumes:
+  postgres-data:
+    labels: {atlas.handoff.session: "${ATLAS_HANDOFF_SESSION:?}"}
+  kafka-data:
+    labels: {atlas.handoff.session: "${ATLAS_HANDOFF_SESSION:?}"}

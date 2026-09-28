@@ -1,0 +1,208 @@
+{
+  "integration": {
+    "totals": {
+      "tests": 345,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "suites": [
+      {
+        "name": "com.atlas.AllocationConcurrencyIT",
+        "tests": "7",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "time": "18.306"
+      },
+      {
+        "name": "com.atlas.CacheIT",
+        "tests": "16",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "time": "26.592"
+      },
+      {
+        "name": "com.atlas.ExpirationIT",
+        "tests": "12",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "time": "10.048"
+      },
+      {
+        "name": "com.atlas.FailureRecoveryIT",
+        "tests": "8",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "time": "32.258"
+      },
+      {
+        "name": "com.atlas.IdempotencyIT",
+        "tests": "28",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "time": "14.595"
+      },
+      {
+        "name": "com.atlas.InfrastructureIT",
+        "tests": "5",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "time": "2.18"
+      },
+      {
+        "name": "com.atlas.MessagingIT",
+        "tests": "11",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "time": "19.3"
+      },
+      {
+        "name": "com.atlas.OutboxIT",
+        "tests": "12",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "time": "5.474"
+      },
+      {
+        "name": "com.atlas.RecoveryIT",
+        "tests": "21",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "time": "18.433"
+      },
+      {
+        "name": "com.atlas.ReservationHoldIT",
+        "tests": "57",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "time": "15.11"
+      },
+      {
+        "name": "com.atlas.ReservationLifecycleIT",
+        "tests": "16",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "time": "12.053"
+      },
+      {
+        "name": "com.atlas.ResourceApiIT",
+        "tests": "51",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "time": "6.346"
+      },
+      {
+        "name": "com.atlas.SchemaIT",
+        "tests": "101",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "time": "5.749"
+      }
+    ]
+  },
+  "unit": {
+    "totals": {
+      "tests": 92,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "suites": [
+      {
+        "name": "com.atlas.configuration.ExpirationConfigurationTest",
+        "tests": "13",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "time": "1.306"
+      },
+      {
+        "name": "com.atlas.configuration.HoldConfigurationTest",
+        "tests": "8",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "time": "0.146"
+      },
+      {
+        "name": "com.atlas.configuration.LocalIdentityConfigurationTest",
+        "tests": "4",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "time": "0.296"
+      },
+      {
+        "name": "com.atlas.configuration.RecoveryConfigurationTest",
+        "tests": "14",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "time": "0.334"
+      },
+      {
+        "name": "com.atlas.configuration.RedisCacheConfigurationTest",
+        "tests": "11",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "time": "0.202"
+      },
+      {
+        "name": "com.atlas.configuration.ReservationEventDecoderTest",
+        "tests": "29",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "time": "0.461"
+      },
+      {
+        "name": "com.atlas.reservation.ExpirationBoundaryTest",
+        "tests": "6",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "time": "0.048"
+      },
+      {
+        "name": "com.atlas.reservation.ReservationLifecycleTest",
+        "tests": "6",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "time": "0.015"
+      },
+      {
+        "name": "com.atlas.reservation.ReservationStatusTest",
+        "tests": "1",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "time": "0.001"
+      }
+    ]
+  },
+  "build": {
+    "exitCode": 0,
+    "status": "PASS",
+    "command": ".\\mvnw.cmd -B -ntp '-Dmaven.repo.local=S:\\Atlas\\.tools\\repository' verify",
+    "finishedAt": "2026-09-29T00:54:48.8300416+05:30",
+    "startedAt": "2026-09-29T00:51:21.9060729+05:30",
+    "totalTime": "03:24 min",
+    "fullRuns": 1,
+    "log": "verify.txt"
+  }
+}

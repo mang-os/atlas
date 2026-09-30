@@ -2,7 +2,7 @@
 
 ## Recorded final regression
 
-The final local verification dated 2026-09-29 passed **345 integration + 92 unit tests**, zero failures/errors/skips. [Machine-readable suite totals](verification/test-summary.json) preserve counts and suite durations. These results precede the repository-presentation changes. A future hosted CI result is independent evidence.
+The final local verification dated 2026-09-29 passed **345 integration + 92 unit tests**, zero failures/errors/skips. [Machine-readable suite totals](verification/test-summary.json) preserve counts and suite durations. These results precede the repository-presentation changes. Hosted CI is independent evidence: the [Verify run for commit 58c9020](https://github.com/mang-os/atlas/actions/runs/36491079222) completed successfully. This does not turn the recorded local load observations into production performance guarantees.
 
 Run from the repository with JDK 21 and Docker's Linux engine:
 

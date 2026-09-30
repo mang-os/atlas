@@ -1,5 +1,7 @@
 <p align="center"><img src="docs/assets/atlas-banner.svg" alt="Atlas — Distributed Reservation and Allocation Platform" width="100%"></p>
 
+<p align="center"><a href="https://github.com/mang-os/atlas/actions/workflows/verify.yml"><img src="https://github.com/mang-os/atlas/actions/workflows/verify.yml/badge.svg" alt="Verify CI status"></a></p>
+
 <p align="center"><strong>Reserve finite capacity safely—even when requests race, responses disappear, and dependencies fail.</strong></p>
 <p align="center">Java 21 · Spring Boot 4.1.1 · PostgreSQL · Kafka · Redis · Testcontainers · k6</p>
 <p align="center"><a href="#quick-start">Quick start</a> · <a href="docs/APP_API_FLOW.md">API contract</a> · <a href="docs/BACKEND_SCHEMA.md">Schema</a> · <a href="docs/VERIFICATION.md">Verification</a> · <a href="docs/OPERATIONS.md">Operations</a></p>
@@ -127,7 +129,7 @@ The retained final local run passed **345 integration tests and 92 unit tests**,
 - Eight infrastructure failure/recovery scenarios.
 - Five measured k6 workloads: 3,769 requests, 557 expected capacity conflicts and zero unexpected failures under the recorded local configuration.
 
-These are local results, not production throughput or availability guarantees. [Verification details and machine-readable summaries](docs/VERIFICATION.md) explain the scope and reproduction commands. GitHub Actions runs the complete Maven verification suite on pushes and pull requests; a hosted result is separate from the retained local run.
+These are local results, not production throughput or availability guarantees. [Verification details and machine-readable summaries](docs/VERIFICATION.md) explain the scope and reproduction commands. [GitHub Actions](https://github.com/mang-os/atlas/actions/workflows/verify.yml) runs Maven verification on pushes to `main` and pull requests, and retains test reports. Hosted results are separate from the retained local run.
 
 ## Explore the repository
 
@@ -149,3 +151,7 @@ Planning: [PRD](docs/PRD.md) · [TRD](docs/TRD.md) · [API flow](docs/APP_API_FL
 Atlas is a local portfolio implementation, **not production-ready**. Production authentication/TLS, HA, backups, retention, tracing and operational dashboards remain outside the verified scope. The current Kafka configuration uses a single partition; transport is at least once, cache reads may be stale, and idempotency records are retained indefinitely. Existing-history migration guards must be reviewed before upgrading a populated database.
 
 The implementation was developed with substantial Codex assistance. The learning guide distinguishes generated implementation/evidence from personal review and understanding. See [contributing](CONTRIBUTING.md) and [security](SECURITY.md).
+
+## Release status
+
+No GitHub release has been published. Use the current source and the documented verification workflow; retained local results do not establish a stable release contract. Published versions, when available, will appear under [Releases](https://github.com/mang-os/atlas/releases).
